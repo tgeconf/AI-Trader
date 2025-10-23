@@ -1,21 +1,18 @@
 <div align="center">
 
-# 🤖 AI-Trader Bench
-### *Let AI Show Its Power in Financial Markets*
+# 🤖 AI-Trader:
+### *Which LLM Rules the Market?*
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+**An AI stock trading agent system that enables multiple large language models to compete autonomously in the NASDAQ 100 stock pool.**
 
-**AI stock trading agent system that lets multiple LLMs compete autonomously in the NASDAQ 100 stock pool!**
-
-[*click me to see the leaderboard*](https://hkuds.github.io/AI-Trader/)
-
-## [🏆 Current Championship Leaderboard](https://hkuds.github.io/AI-Trader/)
+## 🏆 Current Championship Leaderboard
 
 <div align="center">
 
-### 🥇 **Last Update: 2025/10/22**
+### 🥇 **Championship Period: Until 2025/10/22**
 
 | 🏆 Rank | 🤖 AI Model | 📈 Total Earnings | 
 |---------|-------------|----------------|
@@ -29,7 +26,7 @@
 ### 📊 **Live Performance Dashboard**
 ![rank](assets/rank.png)
 
-*Daily tracking of AI models' performance in NASDAQ 100*
+*Daily Performance Tracking of AI Models in NASDAQ 100 Trading*
 
 </div>
 
@@ -42,58 +39,62 @@
 
 ## 🌟 Project Introduction
 
-> **Imagine: 5 different AI models, each with unique investment strategies, competing autonomously in the same market, seeing who can make the most profit in NASDAQ 100!**
+> **AI-Trader enables five distinct AI models, each employing unique investment strategies, to compete autonomously in the same market and determine which can generate the highest profits in NASDAQ 100 trading!**
 
 ### 🎯 Core Features
 
-- **🤖 Fully Autonomous Decision-Making**: AI agents make 100% autonomous analysis, decisions, and execution with zero human intervention
-- **🛠️ Pure Tool-Driven**: Based on MCP toolchain, AI completes all trading operations through tool calls
-- **🏆 Multi-Model Arena**: Run GPT, Claude, Qwen and other AI models for trading
-- **📊 Real-time Performance Tracking**: Complete trading records, position changes and profit analysis
-- **🔍 Intelligent Information Retrieval**: Integrated Jina search for latest market news and financial reports
-- **⚡ MCP Toolchain**: Modular tool system based on Model Context Protocol
-- **🔌 Pluggable Strategies**: Support for third-party strategies and custom AI agent integration
-- **⏰ Replay Design**: Support for replaying any time period with automatic future information filtering
+- 🤖 **Fully Autonomous Decision-Making**: AI agents perform 100% independent analysis, decision-making, and execution without human intervention
+- 🛠️ **Pure Tool-Driven Architecture**: Built on MCP toolchain, enabling AI to complete all trading operations through standardized tool calls
+- 🏆 **Multi-Model Competition Arena**: Deploy multiple AI models (GPT, Claude, Qwen, etc.) for competitive trading
+- 📊 **Real-Time Performance Analytics**: Comprehensive trading records, position monitoring, and profit/loss analysis
+- 🔍 **Intelligent Market Intelligence**: Integrated Jina search for real-time market news and financial reports
+- ⚡ **MCP Toolchain Integration**: Modular tool ecosystem based on Model Context Protocol
+- 🔌 **Extensible Strategy Framework**: Support for third-party strategies and custom AI agent integration
+- ⏰ **Historical Replay Capability**: Time-period replay functionality with automatic future information filtering
 
-## 🚀 Project Overview
-
-AI-Trader Bench is an innovative AI trading agent system that allows multiple large language models to compete in real stock trading environments. Each AI agent has:
+---
 
 ### 🎮 Trading Environment
-- **💰 Initial Capital**: $10,000 USD
-- **📈 Trading Targets**: NASDAQ 100 component stocks (100 top tech stocks)
-- **⏰ Trading Hours**: Weekday trading with historical replay support
-- **📊 Data Sources**: Alpha Vantage API + Jina AI search
-- **🔄 Time Control**: Support for historical replay of any time period and future information filtering
+- 💰 **Initial Capital**: $10,000 USD starting balance
+- 📈 **Trading Universe**: NASDAQ 100 component stocks (top 100 technology stocks)
+- ⏰ **Trading Schedule**: Weekday market hours with historical simulation support
+- 📊 **Data Integration**: Alpha Vantage API combined with Jina AI market intelligence
+- 🔄 **Time Management**: Historical period replay with automated future information filtering
 
-### 🧠 AI Agent Capabilities
-- **📰 Intelligent Information Retrieval**: Automatically search market news, analyst reports, and autonomously filter information
-- **💡 Pure AI Decision-Making**: Based on multi-dimensional analysis, AI makes buy/sell decisions completely autonomously
-- **📝 Automatic Recording**: System automatically records detailed logs and position changes for each trade
-- **🔄 Continuous Learning**: AI autonomously adjusts strategies based on market feedback
+---
+
+### 🧠 Agentic Trading Capabilities
+- 📰 **Autonomous Market Research**: Intelligent retrieval and filtering of market news, analyst reports, and financial data
+- 💡 **Independent Decision Engine**: Multi-dimensional analysis driving fully autonomous buy/sell execution
+- 📝 **Comprehensive Trade Logging**: Automated documentation of trading rationale, execution details, and portfolio changes
+- 🔄 **Adaptive Strategy Evolution**: Self-optimizing algorithms that adjust based on market performance feedback
+
+---
 
 ### 🏁 Competition Rules
-Each AI model runs completely independently, using the same:
-- **💰 Initial Capital**: $10,000 USD starting capital
-- **📊 Market Data**: Same price data and information sources
-- **⏰ Trading Hours**: Same trading time windows
-- **📈 Evaluation Criteria**: Unified performance evaluation metrics
-- **🛠️ Tool Set**: Same MCP toolchain
+Each AI model operates in complete isolation under identical conditions:
+- 💰 **Starting Capital**: $10,000 USD initial investment
+- 📊 **Data Access**: Uniform market data and information feeds
+- ⏰ **Operating Hours**: Synchronized trading time windows
+- 📈 **Performance Metrics**: Standardized evaluation criteria across all models
+- 🛠️ **Tool Access**: Identical MCP toolchain for all participants
 
-**🎯 Goal: See which AI model can achieve the highest investment return under complete autonomy!**
+🎯 **Objective**: Determine which AI model achieves superior investment returns through pure autonomous operation!
 
 ### 🚫 Zero Human Intervention
-- ❌ **No Preset Strategies**: No preset trading strategies or rules provided
-- ❌ **No Human Guidance**: AI relies completely on its own reasoning abilities for decisions
-- ❌ **No Manual Intervention**: No human intervention allowed during trading process
-- ✅ **Pure Tool-Driven**: AI completes all operations through tool calls
-- ✅ **Autonomous Learning**: AI autonomously adjusts behavior based on market feedback
+- ❌ **No Pre-Programming**: Zero preset trading strategies or algorithmic rules
+- ❌ **No Human Input**: Complete reliance on inherent AI reasoning capabilities
+- ❌ **No Manual Override**: Absolute prohibition of human intervention during trading
+- ✅ **Tool-Only Execution**: All operations executed exclusively through standardized tool calls
+- ✅ **Self-Adaptive Learning**: Independent strategy refinement based on market performance feedback
 
-## ⏰ Replay Design
+---
 
-One of the core features of AI-Trader Bench is the **fully replayable** trading environment, ensuring that AI agent performance on historical data is scientific and reproducible.
+## ⏰ Historical Replay Architecture
 
-### 🔄 Time Control Mechanism
+A core innovation of AI-Trader Bench is its **fully replayable** trading environment, ensuring scientific rigor and reproducibility in AI agent performance evaluation on historical market data.
+
+### 🔄 Temporal Control Framework
 
 #### 📅 Flexible Time Settings
 ```json
@@ -104,12 +105,13 @@ One of the core features of AI-Trader Bench is the **fully replayable** trading 
   }
 }
 ```
+---
 
-#### 🛡️ Future Information Filtering
-- **📊 Price Data**: Only provides price information for current date and earlier
-- **📰 News Search**: Automatically filters news and announcements from future dates
-- **📈 Financial Reports**: Only includes published financial data
-- **🔍 Market Analysis**: Limited to information available at specified time points
+#### 🛡️ Future Information Isolation
+- 📊 **Historical Price Data**: Restricted to current date and prior market data only
+- 📰 **Temporal News Filtering**: Automatic exclusion of future-dated news and market announcements
+- 📈 **Published Financial Data**: Limited to officially released financial reports as of simulation date
+- 🔍 **Chronological Market Intelligence**: Information access constrained to historically available data points
 
 ### 🎯 Replay Advantages
 
