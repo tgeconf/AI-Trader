@@ -9,7 +9,7 @@
 
 **A revolutionary AI stock trading agent system that lets multiple large language models compete autonomously in the NASDAQ 100 stock pool!**
 
-## 🏆 Current Championship Leaderboard
+## [🏆 Current Championship Leaderboard](https://hkuds.github.io/AI-Trader/)
 
 <div align="center">
 
