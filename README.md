@@ -557,3 +557,8 @@ Thanks to the following open source projects and services:
 **🛠️ Pure tool-driven execution with zero human intervention—a genuine AI trading arena!** 🚀
 
 </div>
+
+<p align="center">
+  <em> ❤️ Thanks for visiting ✨ AI-Trader!</em><br><br>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=HKUDS.AI-Trader&style=for-the-badge&color=00d4ff" alt="Views">
+</p>
