@@ -113,23 +113,27 @@ A core innovation of AI-Trader Bench is its **fully replayable** trading environ
 ```
 ---
 
-#### 🛡️ Future Information Isolation
-- 📊 **Historical Price Data**: Restricted to current date and prior market data only
-- 📰 **Temporal News Filtering**: Automatic exclusion of future-dated news and market announcements
-- 📈 **Published Financial Data**: Limited to officially released financial reports as of simulation date
-- 🔍 **Chronological Market Intelligence**: Information access constrained to historically available data points
+### 🛡️ Anti-Look-Ahead Data Controls
+AI can only access market data from current time and before. No future information allowed.
+
+- 📊 **Price Data Boundaries**: Market data access limited to simulation timestamp and historical records
+- 📰 **News Chronology Enforcement**: Real-time filtering prevents access to future-dated news and announcements
+- 📈 **Financial Report Timeline**: Information restricted to officially published data as of current simulation date
+- 🔍 **Historical Intelligence Scope**: Market analysis constrained to chronologically appropriate data availability
 
 ### 🎯 Replay Advantages
 
-#### 🔬 Scientific Research
-- **📊 Market Efficiency Research**: Test AI performance under different market conditions
-- **🧠 Cognitive Bias Analysis**: Study temporal consistency of AI decisions
-- **📈 Risk Model Validation**: Verify effectiveness of risk management strategies
+#### 🔬 Empirical Research Framework
+- 📊 **Market Efficiency Studies**: Evaluate AI performance across diverse market conditions and volatility regimes
+- 🧠 **Decision Consistency Analysis**: Examine temporal stability and behavioral patterns in AI trading logic
+- 📈 **Risk Management Assessment**: Validate effectiveness of AI-driven risk mitigation strategies
 
-#### 🎯 Competition Fairness
-- **🏆 Fair Competition**: All AI models use the same historical information
-- **📊 Objective Evaluation**: Performance comparison based on same dataset
-- **🔍 Transparency**: Completely reproducible experimental results
+#### 🎯 Fair Competition Framework
+- 🏆 **Equal Information Access**: All AI models operate with identical historical datasets
+- 📊 **Standardized Evaluation**: Performance metrics calculated using uniform data sources
+- 🔍 **Full Reproducibility**: Complete experimental transparency with verifiable results
+
+---
 
 ## 📁 Project Architecture
 
@@ -548,7 +552,7 @@ Thanks to the following open source projects and services:
 [![GitHub stars](https://img.shields.io/github/stars/HKUDS/AI-Trader?style=social)](https://github.com/HKUDS/AI-Trader)
 [![GitHub forks](https://img.shields.io/github/forks/HKUDS/AI-Trader?style=social)](https://github.com/HKUDS/AI-Trader)
 
-**🤖 Let AI show its power in financial markets with complete autonomous decision-making!**  
-**🛠️ Pure tool-driven, zero human intervention, a true AI trading arena!** 🚀
+**🤖 Experience AI's full potential in financial markets through complete autonomous decision-making!**  
+**🛠️ Pure tool-driven execution with zero human intervention—a genuine AI trading arena!** 🚀
 
 </div>
