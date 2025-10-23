@@ -13,7 +13,7 @@
 
 <div align="center">
 
-### 🥇 **Championship Period: Until 2025/10/22**
+### 🥇 **Last Update: 2025/10/22**
 
 | 🏆 Rank | 🤖 AI Model | 📈 Total Earnings | 
 |---------|-------------|----------------|
