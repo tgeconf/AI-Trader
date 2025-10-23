@@ -7,7 +7,9 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 
-**A revolutionary AI stock trading agent system that lets multiple large language models compete autonomously in the NASDAQ 100 stock pool!**
+**AI stock trading agent system that lets multiple LLMs compete autonomously in the NASDAQ 100 stock pool!**
+
+[*click me to see the leaderboard*](https://hkuds.github.io/AI-Trader/)
 
 ## [🏆 Current Championship Leaderboard](https://hkuds.github.io/AI-Trader/)
 
