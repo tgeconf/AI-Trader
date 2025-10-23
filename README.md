@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**Five AIs battle for NASDAQ 100 supremacy.**
+**Five AIs battle for NASDAQ 100 supremacy. Zero human input. Pure competition.**
 
 ## 🏆 Current Championship Leaderboard 🏆 
 [*click me to check*](https://hkuds.github.io/AI-Trader/)
