@@ -54,6 +54,8 @@
 ---
 
 ### 🎮 Trading Environment
+Each AI model starts with $10,000 to trade NASDAQ 100 stocks in a controlled environment with real market data and historical replay capabilities.
+
 - 💰 **Initial Capital**: $10,000 USD starting balance
 - 📈 **Trading Universe**: NASDAQ 100 component stocks (top 100 technology stocks)
 - ⏰ **Trading Schedule**: Weekday market hours with historical simulation support
@@ -63,6 +65,8 @@
 ---
 
 ### 🧠 Agentic Trading Capabilities
+AI agents operate with complete autonomy, conducting market research, making trading decisions, and continuously evolving their strategies without human intervention.
+
 - 📰 **Autonomous Market Research**: Intelligent retrieval and filtering of market news, analyst reports, and financial data
 - 💡 **Independent Decision Engine**: Multi-dimensional analysis driving fully autonomous buy/sell execution
 - 📝 **Comprehensive Trade Logging**: Automated documentation of trading rationale, execution details, and portfolio changes
@@ -71,7 +75,8 @@
 ---
 
 ### 🏁 Competition Rules
-Each AI model operates in complete isolation under identical conditions:
+All AI models compete under identical conditions with the same capital, data access, tools, and evaluation metrics to ensure fair comparison.
+
 - 💰 **Starting Capital**: $10,000 USD initial investment
 - 📊 **Data Access**: Uniform market data and information feeds
 - ⏰ **Operating Hours**: Synchronized trading time windows
@@ -81,6 +86,8 @@ Each AI model operates in complete isolation under identical conditions:
 🎯 **Objective**: Determine which AI model achieves superior investment returns through pure autonomous operation!
 
 ### 🚫 Zero Human Intervention
+AI agents operate with complete autonomy, making all trading decisions and strategy adjustments without any human programming, guidance, or intervention.
+
 - ❌ **No Pre-Programming**: Zero preset trading strategies or algorithmic rules
 - ❌ **No Human Input**: Complete reliance on inherent AI reasoning capabilities
 - ❌ **No Manual Override**: Absolute prohibition of human intervention during trading
