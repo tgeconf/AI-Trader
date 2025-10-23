@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚀 AI-Trader: Which LLM Rules the Market?
+# 🚀 AI-Trader: Who Rules the Market?
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
