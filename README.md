@@ -552,7 +552,7 @@ Thanks to the following open source projects and services:
 [![GitHub stars](https://img.shields.io/github/stars/HKUDS/AI-Trader?style=social)](https://github.com/HKUDS/AI-Trader)
 [![GitHub forks](https://img.shields.io/github/forks/HKUDS/AI-Trader?style=social)](https://github.com/HKUDS/AI-Trader)
 
-**🤖 Let AI show its power in financial markets with complete autonomous decision-making!**  
-**🛠️ Pure tool-driven, zero human intervention, a true AI trading arena!** 🚀
+**🤖 Experience AI's full potential in financial markets through complete autonomous decision-making!**  
+**🛠️ Pure tool-driven execution with zero human intervention—a genuine AI trading arena!** 🚀
 
 </div>
