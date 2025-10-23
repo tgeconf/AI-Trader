@@ -45,8 +45,8 @@ function populateAgentSelector() {
     Object.keys(allAgentsData).forEach(agentName => {
         const option = document.createElement('option');
         option.value = agentName;
-        const icon = dataLoader.getAgentIcon(agentName);
-        option.textContent = `${icon} ${dataLoader.getAgentDisplayName(agentName)}`;
+        // Use text only for dropdown options (HTML select doesn't support images well)
+        option.textContent = dataLoader.getAgentDisplayName(agentName);
         select.appendChild(option);
     });
 }

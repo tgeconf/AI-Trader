@@ -18,6 +18,27 @@ const agentColors = [
     '#06ffa5'  // Mint
 ];
 
+// Cache for loaded SVG images
+const iconImageCache = {};
+
+// Function to load SVG as image
+function loadIconImage(iconPath) {
+    return new Promise((resolve, reject) => {
+        if (iconImageCache[iconPath]) {
+            resolve(iconImageCache[iconPath]);
+            return;
+        }
+        
+        const img = new Image();
+        img.onload = () => {
+            iconImageCache[iconPath] = img;
+            resolve(img);
+        };
+        img.onerror = reject;
+        img.src = iconPath;
+    });
+}
+
 // Initialize the page
 async function init() {
     showLoading();
@@ -27,6 +48,17 @@ async function init() {
         console.log('Loading all agents data...');
         allAgentsData = await dataLoader.loadAllAgentsData();
         console.log('Data loaded:', allAgentsData);
+
+        // Preload all agent icons
+        const agentNames = Object.keys(allAgentsData);
+        const iconPromises = agentNames.map(agentName => {
+            const iconPath = dataLoader.getAgentIcon(agentName);
+            return loadIconImage(iconPath).catch(err => {
+                console.warn(`Failed to load icon for ${agentName}:`, err);
+            });
+        });
+        await Promise.all(iconPromises);
+        console.log('Icons preloaded');
 
         // Update stats
         updateStats();
@@ -171,11 +203,7 @@ function createChart() {
                         const x = lastPoint.x;
                         const y = lastPoint.y;
 
-                        // Draw icon
                         ctx.save();
-                        ctx.font = 'bold 22px Arial';
-                        ctx.textAlign = 'left';
-                        ctx.textBaseline = 'middle';
 
                         // Draw background circle with glow
                         const iconSize = 30;
@@ -191,9 +219,12 @@ function createChart() {
                         // Reset shadow
                         ctx.shadowBlur = 0;
 
-                        // Draw icon
-                        ctx.fillStyle = '#0a0e27';
-                        ctx.fillText(dataset.agentIcon, x + 22 - 9, y);
+                        // Draw icon image if loaded
+                        if (iconImageCache[dataset.agentIcon]) {
+                            const img = iconImageCache[dataset.agentIcon];
+                            const imgSize = iconSize * 0.6; // Icon slightly smaller than circle
+                            ctx.drawImage(img, x + 22 - imgSize/2, y - imgSize/2, imgSize, imgSize);
+                        }
 
                         ctx.restore();
                     }
@@ -242,8 +273,8 @@ function createChart() {
                         label: function(context) {
                             const label = context.dataset.label || '';
                             const value = dataLoader.formatCurrency(context.parsed.y);
-                            const icon = context.dataset.agentIcon || '';
-                            return `${icon} ${label}: ${value}`;
+                            // Tooltips don't support images, so just show label and value
+                            return `${label}: ${value}`;
                         }
                     }
                 }
@@ -311,13 +342,15 @@ function createLegend() {
         
         const returnValue = data.return;
         const returnClass = returnValue >= 0 ? 'positive' : 'negative';
-        const icon = dataLoader.getAgentIcon(agentName);
+        const iconPath = dataLoader.getAgentIcon(agentName);
         const brandColor = dataLoader.getAgentBrandColor(agentName);
 
         const legendItem = document.createElement('div');
         legendItem.className = 'legend-item';
         legendItem.innerHTML = `
-            <div class="legend-icon" ${brandColor ? `style="background: ${brandColor}20; color: ${brandColor};"` : ''}>${icon}</div>
+            <div class="legend-icon" ${brandColor ? `style="background: ${brandColor}20;"` : ''}>
+                <img src="${iconPath}" alt="${agentName}" class="legend-icon-img" />
+            </div>
             <div class="legend-color" style="background: ${color}; border-style: ${borderStyle};"></div>
             <div class="legend-info">
                 <div class="legend-name">${dataLoader.getAgentDisplayName(agentName)}</div>

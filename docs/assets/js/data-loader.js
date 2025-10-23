@@ -359,17 +359,28 @@ class DataLoader {
         return names[agentName] || agentName;
     }
 
-    // Get icon for agent (emoji/symbol representation)
+    // Get icon for agent (SVG file path)
     getAgentIcon(agentName) {
         const icons = {
-            'gemini-2.5-flash': '🤖',
-            'qwen3-max': '🧠',
-            'gpt-5': '🔮',
-            'claude-3.7-sonnet': '🎭',
-            'deepseek-chat-v3.1': '🔬',
-            'QQQ': '📈'
+            'gemini-2.5-flash': './figs/google.svg',
+            'qwen3-max': './figs/qwen.svg',
+            'gpt-5': './figs/openai.svg',
+            'claude-3.7-sonnet': './figs/claude-color.svg',
+            'deepseek-chat-v3.1': './figs/deepseek.svg',
+            'QQQ': './figs/stock.svg'  // 使用默认图标
         };
-        return icons[agentName] || '🤖';
+        return icons[agentName] || './figs/stock.svg';
+    }
+    
+    // Get agent name without version suffix for icon lookup
+    getAgentIconKey(agentName) {
+        // 处理可能的版本号变体
+        if (agentName.includes('gemini')) return 'gemini-2.5-flash';
+        if (agentName.includes('qwen')) return 'qwen3-max';
+        if (agentName.includes('gpt')) return 'gpt-5';
+        if (agentName.includes('claude')) return 'claude-3.7-sonnet';
+        if (agentName.includes('deepseek')) return 'deepseek-chat-v3.1';
+        return agentName;
     }
 
     // Get brand color for agent

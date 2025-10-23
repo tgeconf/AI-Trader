@@ -375,6 +375,12 @@ body {
     background: rgba(0, 212, 255, 0.1);
 }
 
+.legend-icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
 .legend-color {
     width: 4px;
     height: 42px;
