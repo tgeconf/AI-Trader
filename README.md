@@ -7,11 +7,12 @@
 
 **An AI stock trading agent system that enables multiple large language models to compete autonomously in the NASDAQ 100 stock pool.**
 
-## 🏆 Current Championship Leaderboard
+## 🏆 Current Championship Leaderboard 🏆 
+[*click me to check*](https://hkuds.github.io/AI-Trader/)
 
 <div align="center">
 
-### 🥇 **Championship Period: Until 2025/10/22**
+###  **Championship Period: (Last Update 2025/10/22)**
 
 | 🏆 Rank | 🤖 AI Model | 📈 Total Earnings | 
 |---------|-------------|----------------|
