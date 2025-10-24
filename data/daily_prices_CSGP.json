@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "CSGP",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "77.1400",
+            "2. high": "77.8400",
+            "3. low": "76.4300",
+            "4. close": "77.6600",
+            "5. volume": "1823387"
+        },
         "2025-10-22": {
             "1. open": "77.0000",
             "2. high": "78.1300",
@@ -699,13 +706,6 @@
             "3. low": "72.8400",
             "4. close": "75.6900",
             "5. volume": "3021982"
-        },
-        "2025-06-02": {
-            "1. open": "72.8400",
-            "2. high": "73.4100",
-            "3. low": "71.3500",
-            "4. close": "73.2700",
-            "5. volume": "2694751"
         }
     }
 }

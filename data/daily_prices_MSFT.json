@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "MSFT",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "522.4600",
+            "2. high": "523.9500",
+            "3. low": "518.6100",
+            "4. close": "520.5600",
+            "5. volume": "14023532"
+        },
         "2025-10-22": {
             "1. open": "521.1500",
             "2. high": "525.2300",
@@ -699,13 +706,6 @@
             "3. low": "460.8622",
             "4. close": "462.9700",
             "5. volume": "15743760"
-        },
-        "2025-06-02": {
-            "1. open": "457.1400",
-            "2. high": "462.1100",
-            "3. low": "456.8900",
-            "4. close": "461.9700",
-            "5. volume": "16626495"
         }
     }
 }

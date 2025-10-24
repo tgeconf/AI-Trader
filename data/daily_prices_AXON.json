@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "AXON",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "704.4100",
+            "2. high": "718.1900",
+            "3. low": "704.0100",
+            "4. close": "716.3900",
+            "5. volume": "343591"
+        },
         "2025-10-22": {
             "1. open": "709.7700",
             "2. high": "709.9500",
@@ -699,13 +706,6 @@
             "3. low": "750.0000",
             "4. close": "759.0700",
             "5. volume": "503574"
-        },
-        "2025-06-02": {
-            "1. open": "755.0000",
-            "2. high": "765.0000",
-            "3. low": "742.8000",
-            "4. close": "758.5700",
-            "5. volume": "521175"
         }
     }
 }

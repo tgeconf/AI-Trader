@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "IDXX",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "631.2500",
+            "2. high": "641.4700",
+            "3. low": "630.7000",
+            "4. close": "638.6000",
+            "5. volume": "532713"
+        },
         "2025-10-22": {
             "1. open": "642.4100",
             "2. high": "642.4100",
@@ -699,13 +706,6 @@
             "3. low": "510.9900",
             "4. close": "525.8300",
             "5. volume": "608809"
-        },
-        "2025-06-02": {
-            "1. open": "508.7200",
-            "2. high": "514.8500",
-            "3. low": "504.5600",
-            "4. close": "514.8000",
-            "5. volume": "501729"
         }
     }
 }

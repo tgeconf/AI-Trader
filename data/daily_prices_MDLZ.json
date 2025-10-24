@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "MDLZ",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "61.8300",
+            "2. high": "61.8950",
+            "3. low": "60.9800",
+            "4. close": "61.0100",
+            "5. volume": "5212549"
+        },
         "2025-10-22": {
             "1. open": "61.8400",
             "2. high": "62.5400",
@@ -699,13 +706,6 @@
             "3. low": "66.8300",
             "4. close": "67.0400",
             "5. volume": "5156136"
-        },
-        "2025-06-02": {
-            "1. open": "67.1650",
-            "2. high": "67.5650",
-            "3. low": "66.6600",
-            "4. close": "67.5100",
-            "5. volume": "5004767"
         }
     }
 }

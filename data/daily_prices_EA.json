@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "EA",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "200.6500",
+            "2. high": "200.7600",
+            "3. low": "200.4900",
+            "4. close": "200.6200",
+            "5. volume": "3357439"
+        },
         "2025-10-22": {
             "1. open": "200.4600",
             "2. high": "200.8700",
@@ -699,13 +706,6 @@
             "3. low": "144.6671",
             "4. close": "146.2400",
             "5. volume": "2863817"
-        },
-        "2025-06-02": {
-            "1. open": "143.6100",
-            "2. high": "146.2000",
-            "3. low": "143.5100",
-            "4. close": "145.8800",
-            "5. volume": "3418176"
         }
     }
 }

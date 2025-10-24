@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "LRCX",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "138.0000",
+            "2. high": "148.4600",
+            "3. low": "137.3700",
+            "4. close": "147.5400",
+            "5. volume": "13336572"
+        },
         "2025-10-22": {
             "1. open": "144.8950",
             "2. high": "145.7450",
@@ -699,13 +706,6 @@
             "3. low": "81.9500",
             "4. close": "83.6600",
             "5. volume": "8920692"
-        },
-        "2025-06-02": {
-            "1. open": "80.5850",
-            "2. high": "82.5300",
-            "3. low": "80.4250",
-            "4. close": "82.4800",
-            "5. volume": "8246254"
         }
     }
 }

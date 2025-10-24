@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "AVGO",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "340.4000",
+            "2. high": "346.5700",
+            "3. low": "340.4000",
+            "4. close": "344.2900",
+            "5. volume": "12859162"
+        },
         "2025-10-22": {
             "1. open": "347.3000",
             "2. high": "348.0100",
@@ -699,13 +706,6 @@
             "3. low": "249.4000",
             "4. close": "256.8500",
             "5. volume": "30380248"
-        },
-        "2025-06-02": {
-            "1. open": "243.2500",
-            "2. high": "250.0000",
-            "3. low": "243.1900",
-            "4. close": "248.7100",
-            "5. volume": "19197009"
         }
     }
 }

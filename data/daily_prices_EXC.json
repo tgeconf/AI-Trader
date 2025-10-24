@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "EXC",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "48.2800",
+            "2. high": "48.3950",
+            "3. low": "47.4200",
+            "4. close": "47.6000",
+            "5. volume": "11514883"
+        },
         "2025-10-22": {
             "1. open": "47.9400",
             "2. high": "48.5050",
@@ -699,13 +706,6 @@
             "3. low": "42.9000",
             "4. close": "43.4600",
             "5. volume": "7448071"
-        },
-        "2025-06-02": {
-            "1. open": "43.5800",
-            "2. high": "43.8100",
-            "3. low": "43.2700",
-            "4. close": "43.7900",
-            "5. volume": "4312983"
         }
     }
 }

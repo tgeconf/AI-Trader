@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "DXCM",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "70.7000",
+            "2. high": "71.5000",
+            "3. low": "70.1100",
+            "4. close": "71.0600",
+            "5. volume": "2856351"
+        },
         "2025-10-22": {
             "1. open": "70.4400",
             "2. high": "71.9900",
@@ -699,13 +706,6 @@
             "3. low": "84.5000",
             "4. close": "86.7900",
             "5. volume": "2423031"
-        },
-        "2025-06-02": {
-            "1. open": "85.4400",
-            "2. high": "85.8800",
-            "3. low": "84.1000",
-            "4. close": "85.5100",
-            "5. volume": "2524466"
         }
     }
 }

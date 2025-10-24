@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "LIN",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "452.5800",
+            "2. high": "452.6700",
+            "3. low": "448.6600",
+            "4. close": "450.0800",
+            "5. volume": "1526952"
+        },
         "2025-10-22": {
             "1. open": "450.3300",
             "2. high": "455.0750",
@@ -699,13 +706,6 @@
             "3. low": "462.0000",
             "4. close": "471.8200",
             "5. volume": "2606559"
-        },
-        "2025-06-02": {
-            "1. open": "465.1650",
-            "2. high": "466.3500",
-            "3. low": "461.3200",
-            "4. close": "464.5700",
-            "5. volume": "1865696"
         }
     }
 }

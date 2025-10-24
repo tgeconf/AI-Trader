@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "CEG",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "354.0000",
+            "2. high": "367.5350",
+            "3. low": "353.7900",
+            "4. close": "365.8000",
+            "5. volume": "2317537"
+        },
         "2025-10-22": {
             "1. open": "361.0000",
             "2. high": "362.9396",
@@ -699,13 +706,6 @@
             "3. low": "309.5000",
             "4. close": "313.0300",
             "5. volume": "10696101"
-        },
-        "2025-06-02": {
-            "1. open": "306.8900",
-            "2. high": "313.9000",
-            "3. low": "304.5700",
-            "4. close": "313.4300",
-            "5. volume": "2097119"
         }
     }
 }

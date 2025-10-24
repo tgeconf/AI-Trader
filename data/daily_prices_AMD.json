@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "AMD",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "230.1600",
+            "2. high": "235.9000",
+            "3. low": "228.5400",
+            "4. close": "234.9900",
+            "5. volume": "39024429"
+        },
         "2025-10-22": {
             "1. open": "236.8500",
             "2. high": "240.1324",
@@ -699,13 +706,6 @@
             "3. low": "113.2800",
             "4. close": "117.3100",
             "5. volume": "37161484"
-        },
-        "2025-06-02": {
-            "1. open": "111.0600",
-            "2. high": "114.8600",
-            "3. low": "111.0100",
-            "4. close": "114.6300",
-            "5. volume": "34078358"
         }
     }
 }

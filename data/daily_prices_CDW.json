@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "CDW",
-        "3. Last Refreshed": "2025-10-22",
+        "3. Last Refreshed": "2025-10-23",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-23": {
+            "1. open": "156.3200",
+            "2. high": "159.3700",
+            "3. low": "154.8500",
+            "4. close": "158.4800",
+            "5. volume": "1047520"
+        },
         "2025-10-22": {
             "1. open": "157.3300",
             "2. high": "161.1000",
@@ -699,13 +706,6 @@
             "3. low": "174.7000",
             "4. close": "179.3500",
             "5. volume": "819461"
-        },
-        "2025-06-02": {
-            "1. open": "176.8700",
-            "2. high": "177.4400",
-            "3. low": "171.1600",
-            "4. close": "174.7600",
-            "5. volume": "2285210"
         }
     }
 }

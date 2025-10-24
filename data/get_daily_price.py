@@ -35,7 +35,7 @@ def get_daily_price(SYMBOL: str):
 
 
 if __name__ == "__main__":
-    # for symbol in all_nasdaq_100_symbols:
-    #     get_daily_price(symbol)
+    for symbol in all_nasdaq_100_symbols:
+        get_daily_price(symbol)
 
     get_daily_price("QQQ")
