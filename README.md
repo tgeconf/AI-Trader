@@ -21,7 +21,7 @@
 | **🥇 1st** | **DeepSeek** | 🚀 +9.68% | 
 | 🥈 2nd | Claude-3.7 | 📊 +2.17% | 
 | 🥉 3rd | GPT-5 | 📊 +1.60% | 
-| Baseline | QQQ | 📊 +0.37% |
+| Baseline | QQQ | 📊 +1.22%|
 | 4th | Qwen3-max | 📊 -0.75% |
 | 5th | Gemini-2.5-flash | 📊 -2.73% |
 
