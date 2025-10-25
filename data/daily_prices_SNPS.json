@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "SNPS",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "461.6500",
+            "2. high": "473.4900",
+            "3. low": "458.1300",
+            "4. close": "464.1800",
+            "5. volume": "1294614"
+        },
         "2025-10-23": {
             "1. open": "452.0000",
             "2. high": "460.4100",
@@ -699,13 +706,6 @@
             "3. low": "463.6032",
             "4. close": "473.1900",
             "5. volume": "972566"
-        },
-        "2025-06-03": {
-            "1. open": "464.5600",
-            "2. high": "471.9600",
-            "3. low": "461.1150",
-            "4. close": "466.2600",
-            "5. volume": "1295322"
         }
     }
 }

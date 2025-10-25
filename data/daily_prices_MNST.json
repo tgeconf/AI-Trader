@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "MNST",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "70.2600",
+            "2. high": "70.3800",
+            "3. low": "69.4500",
+            "4. close": "69.6900",
+            "5. volume": "2401324"
+        },
         "2025-10-23": {
             "1. open": "69.5900",
             "2. high": "69.9700",
@@ -699,13 +706,6 @@
             "3. low": "62.9250",
             "4. close": "63.1600",
             "5. volume": "4908022"
-        },
-        "2025-06-03": {
-            "1. open": "63.4900",
-            "2. high": "64.0300",
-            "3. low": "63.1150",
-            "4. close": "63.9900",
-            "5. volume": "6015371"
         }
     }
 }

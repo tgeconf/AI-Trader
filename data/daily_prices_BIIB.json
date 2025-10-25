@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "BIIB",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "151.0900",
+            "2. high": "151.9200",
+            "3. low": "148.9800",
+            "4. close": "149.8900",
+            "5. volume": "1338315"
+        },
         "2025-10-23": {
             "1. open": "148.9900",
             "2. high": "150.2900",
@@ -699,13 +706,6 @@
             "3. low": "131.6700",
             "4. close": "131.8600",
             "5. volume": "1472904"
-        },
-        "2025-06-03": {
-            "1. open": "130.7700",
-            "2. high": "134.7400",
-            "3. low": "129.5100",
-            "4. close": "131.8400",
-            "5. volume": "1825014"
         }
     }
 }

@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "REGN",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "579.6500",
+            "2. high": "582.7000",
+            "3. low": "576.2000",
+            "4. close": "577.9500",
+            "5. volume": "875474"
+        },
         "2025-10-23": {
             "1. open": "579.6800",
             "2. high": "584.0010",
@@ -699,13 +706,6 @@
             "3. low": "482.9900",
             "4. close": "484.9300",
             "5. volume": "1870674"
-        },
-        "2025-06-03": {
-            "1. open": "490.7850",
-            "2. high": "501.1100",
-            "3. low": "485.3400",
-            "4. close": "487.8600",
-            "5. volume": "2141551"
         }
     }
 }

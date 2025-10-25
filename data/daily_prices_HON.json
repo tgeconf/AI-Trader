@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "HON",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "220.9300",
+            "2. high": "220.9300",
+            "3. low": "214.7500",
+            "4. close": "216.1400",
+            "5. volume": "8040754"
+        },
         "2025-10-23": {
             "1. open": "215.0000",
             "2. high": "222.4800",
@@ -699,13 +706,6 @@
             "3. low": "226.1900",
             "4. close": "227.4500",
             "5. volume": "1832734"
-        },
-        "2025-06-03": {
-            "1. open": "225.0000",
-            "2. high": "227.2200",
-            "3. low": "224.9900",
-            "4. close": "226.7700",
-            "5. volume": "2809400"
         }
     }
 }

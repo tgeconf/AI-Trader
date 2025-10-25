@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "CSCO",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "70.6350",
+            "2. high": "70.9400",
+            "3. low": "70.0600",
+            "4. close": "70.6300",
+            "5. volume": "13075554"
+        },
         "2025-10-23": {
             "1. open": "70.6000",
             "2. high": "71.2350",
@@ -699,13 +706,6 @@
             "3. low": "64.3450",
             "4. close": "64.3900",
             "5. volume": "14770949"
-        },
-        "2025-06-03": {
-            "1. open": "63.7950",
-            "2. high": "64.4564",
-            "3. low": "63.7200",
-            "4. close": "64.3600",
-            "5. volume": "15156856"
         }
     }
 }

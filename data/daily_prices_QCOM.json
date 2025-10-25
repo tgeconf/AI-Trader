@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "QCOM",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "171.6900",
+            "2. high": "172.4200",
+            "3. low": "168.4700",
+            "4. close": "168.9400",
+            "5. volume": "6255987"
+        },
         "2025-10-23": {
             "1. open": "168.3300",
             "2. high": "171.2500",
@@ -699,13 +706,6 @@
             "3. low": "147.3826",
             "4. close": "149.0500",
             "5. volume": "7143844"
-        },
-        "2025-06-03": {
-            "1. open": "146.7100",
-            "2. high": "149.7800",
-            "3. low": "145.5150",
-            "4. close": "148.9400",
-            "5. volume": "6164120"
         }
     }
 }

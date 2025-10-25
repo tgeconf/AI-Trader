@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "WBD",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "21.3700",
+            "2. high": "21.5700",
+            "3. low": "21.0100",
+            "4. close": "21.1500",
+            "5. volume": "24584192"
+        },
         "2025-10-23": {
             "1. open": "21.0000",
             "2. high": "21.5600",
@@ -699,13 +706,6 @@
             "3. low": "9.6900",
             "4. close": "9.7900",
             "5. volume": "34162242"
-        },
-        "2025-06-03": {
-            "1. open": "9.9700",
-            "2. high": "10.1000",
-            "3. low": "9.7400",
-            "4. close": "9.9400",
-            "5. volume": "31616241"
         }
     }
 }

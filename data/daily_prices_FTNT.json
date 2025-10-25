@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "FTNT",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "85.7700",
+            "2. high": "85.8600",
+            "3. low": "84.9800",
+            "4. close": "85.5600",
+            "5. volume": "3367503"
+        },
         "2025-10-23": {
             "1. open": "84.6600",
             "2. high": "85.4700",
@@ -699,13 +706,6 @@
             "3. low": "101.3200",
             "4. close": "101.6200",
             "5. volume": "3393049"
-        },
-        "2025-06-03": {
-            "1. open": "102.2600",
-            "2. high": "103.1700",
-            "3. low": "102.0600",
-            "4. close": "102.8800",
-            "5. volume": "3789923"
         }
     }
 }

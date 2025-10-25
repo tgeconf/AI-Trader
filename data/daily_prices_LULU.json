@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "LULU",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "180.4800",
+            "2. high": "181.3899",
+            "3. low": "177.2600",
+            "4. close": "178.1700",
+            "5. volume": "2609352"
+        },
         "2025-10-23": {
             "1. open": "178.5450",
             "2. high": "180.5900",
@@ -699,13 +706,6 @@
             "3. low": "333.3850",
             "4. close": "335.1900",
             "5. volume": "2293724"
-        },
-        "2025-06-03": {
-            "1. open": "328.5500",
-            "2. high": "340.2500",
-            "3. low": "324.7100",
-            "4. close": "334.9100",
-            "5. volume": "3248131"
         }
     }
 }

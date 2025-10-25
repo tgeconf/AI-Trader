@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "GEHC",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "77.5800",
+            "2. high": "78.3300",
+            "3. low": "77.1400",
+            "4. close": "78.1400",
+            "5. volume": "2600338"
+        },
         "2025-10-23": {
             "1. open": "76.3200",
             "2. high": "77.4000",
@@ -699,13 +706,6 @@
             "3. low": "70.9300",
             "4. close": "71.1300",
             "5. volume": "1672626"
-        },
-        "2025-06-03": {
-            "1. open": "70.0000",
-            "2. high": "71.3000",
-            "3. low": "69.3100",
-            "4. close": "71.1600",
-            "5. volume": "2445581"
         }
     }
 }

@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "TEAM",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "167.3000",
+            "2. high": "168.6525",
+            "3. low": "162.1500",
+            "4. close": "162.6400",
+            "5. volume": "1977820"
+        },
         "2025-10-23": {
             "1. open": "167.3350",
             "2. high": "168.3400",
@@ -699,13 +706,6 @@
             "3. low": "210.0000",
             "4. close": "210.9200",
             "5. volume": "1328912"
-        },
-        "2025-06-03": {
-            "1. open": "204.9800",
-            "2. high": "211.2400",
-            "3. low": "203.9100",
-            "4. close": "210.8900",
-            "5. volume": "2935928"
         }
     }
 }

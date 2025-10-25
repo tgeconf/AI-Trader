@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "APP",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "607.5650",
+            "2. high": "627.1100",
+            "3. low": "605.5001",
+            "4. close": "620.0000",
+            "5. volume": "4100373"
+        },
         "2025-10-23": {
             "1. open": "560.8400",
             "2. high": "591.3100",
@@ -699,13 +706,6 @@
             "3. low": "398.2100",
             "4. close": "416.5200",
             "5. volume": "4804645"
-        },
-        "2025-06-03": {
-            "1. open": "401.9100",
-            "2. high": "408.0000",
-            "3. low": "390.4100",
-            "4. close": "398.5100",
-            "5. volume": "4651336"
         }
     }
 }

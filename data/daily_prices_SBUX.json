@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "SBUX",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "86.0950",
+            "2. high": "86.8400",
+            "3. low": "85.8600",
+            "4. close": "86.0900",
+            "5. volume": "5844597"
+        },
         "2025-10-23": {
             "1. open": "85.4800",
             "2. high": "85.9000",
@@ -699,13 +706,6 @@
             "3. low": "86.0201",
             "4. close": "88.1100",
             "5. volume": "8740890"
-        },
-        "2025-06-03": {
-            "1. open": "85.0650",
-            "2. high": "87.4900",
-            "3. low": "84.4000",
-            "4. close": "86.6000",
-            "5. volume": "8287651"
         }
     }
 }

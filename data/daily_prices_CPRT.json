@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "CPRT",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "45.1050",
+            "2. high": "45.2607",
+            "3. low": "44.5600",
+            "4. close": "44.6600",
+            "5. volume": "3590597"
+        },
         "2025-10-23": {
             "1. open": "44.9800",
             "2. high": "45.1800",
@@ -699,13 +706,6 @@
             "3. low": "50.3200",
             "4. close": "50.3800",
             "5. volume": "6313476"
-        },
-        "2025-06-03": {
-            "1. open": "50.6000",
-            "2. high": "51.1500",
-            "3. low": "50.1800",
-            "4. close": "51.0100",
-            "5. volume": "6664827"
         }
     }
 }

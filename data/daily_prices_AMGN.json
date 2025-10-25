@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "AMGN",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "292.8900",
+            "2. high": "293.9400",
+            "3. low": "290.6600",
+            "4. close": "291.7600",
+            "5. volume": "1376330"
+        },
         "2025-10-23": {
             "1. open": "296.0100",
             "2. high": "296.4600",
@@ -699,13 +706,6 @@
             "3. low": "286.8900",
             "4. close": "287.0100",
             "5. volume": "2338424"
-        },
-        "2025-06-03": {
-            "1. open": "285.5200",
-            "2. high": "291.7600",
-            "3. low": "283.0400",
-            "4. close": "289.5700",
-            "5. volume": "2320446"
         }
     }
 }

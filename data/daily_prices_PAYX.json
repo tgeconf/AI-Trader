@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "PAYX",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "125.1100",
+            "2. high": "125.5600",
+            "3. low": "124.2100",
+            "4. close": "124.6000",
+            "5. volume": "4436857"
+        },
         "2025-10-23": {
             "1. open": "126.3700",
             "2. high": "126.9600",
@@ -699,13 +706,6 @@
             "3. low": "157.5200",
             "4. close": "159.3300",
             "5. volume": "1271111"
-        },
-        "2025-06-03": {
-            "1. open": "157.0800",
-            "2. high": "158.3600",
-            "3. low": "156.4800",
-            "4. close": "158.2500",
-            "5. volume": "1459485"
         }
     }
 }

@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "PDD",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "134.3500",
+            "2. high": "134.9600",
+            "3. low": "133.3500",
+            "4. close": "133.9600",
+            "5. volume": "5985202"
+        },
         "2025-10-23": {
             "1. open": "131.2200",
             "2. high": "133.9550",
@@ -699,13 +706,6 @@
             "3. low": "97.8336",
             "4. close": "99.6500",
             "5. volume": "9816701"
-        },
-        "2025-06-03": {
-            "1. open": "96.3950",
-            "2. high": "98.9400",
-            "3. low": "95.5200",
-            "4. close": "98.3300",
-            "5. volume": "7574915"
         }
     }
 }

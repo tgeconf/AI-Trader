@@ -2,11 +2,18 @@
     "Meta Data": {
         "1. Information": "Daily Prices (open, high, low, close) and Volumes",
         "2. Symbol": "ARM",
-        "3. Last Refreshed": "2025-10-23",
+        "3. Last Refreshed": "2025-10-24",
         "4. Output Size": "Compact",
         "5. Time Zone": "US/Eastern"
     },
     "Time Series (Daily)": {
+        "2025-10-24": {
+            "1. open": "170.1900",
+            "2. high": "174.4499",
+            "3. low": "169.6600",
+            "4. close": "170.6800",
+            "5. volume": "3665243"
+        },
         "2025-10-23": {
             "1. open": "164.5600",
             "2. high": "169.2900",
@@ -699,13 +706,6 @@
             "3. low": "127.3301",
             "4. close": "130.3600",
             "5. volume": "2473376"
-        },
-        "2025-06-03": {
-            "1. open": "127.5300",
-            "2. high": "130.6400",
-            "3. low": "126.9300",
-            "4. close": "128.7800",
-            "5. volume": "3445675"
         }
     }
 }
