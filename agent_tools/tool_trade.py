@@ -8,6 +8,12 @@ sys.path.insert(0, project_root)
 from tools.price_tools import get_yesterday_date, get_open_prices, get_yesterday_open_and_close_price, get_latest_position, get_yesterday_profit
 import json
 from tools.general_tools import get_config_value,write_config_value
+
+# Import transaction cost calculator
+from trading_costs.transaction_cost_calculator import TransactionCostCalculator
+from trading_costs.commission_model import CommissionModel, CommissionType
+from trading_costs.slippage_model import SlippageModel, SlippageType
+
 mcp = FastMCP("TradeTools")
 
 
@@ -21,8 +27,9 @@ def buy(symbol: str, amount: int) -> Dict[str, Any]:
     1. Get current position and operation ID
     2. Get stock opening price for the day
     3. Validate buy conditions (sufficient cash)
-    4. Update position (increase stock quantity, decrease cash)
-    5. Record transaction to position.jsonl file
+    4. Calculate transaction costs
+    5. Update position (increase stock quantity, decrease cash)
+    6. Record transaction to position.jsonl file
     
     Args:
         symbol: Stock symbol, such as "AAPL", "MSFT", etc.
@@ -67,41 +74,94 @@ def buy(symbol: str, amount: int) -> Dict[str, Any]:
         # Stock symbol does not exist or price data is missing, return error message
         return {"error": f"Symbol {symbol} not found! This action will not be allowed.", "symbol": symbol, "date": today_date}
 
-    # Step 4: Validate buy conditions
-    # Calculate cash required for purchase: stock price × buy quantity
+    # Step 4: Calculate transaction costs
+    # Initialize transaction cost calculator
+    commission_model = CommissionModel(commission_type=CommissionType.PROPORTIONAL, rate=0.001)  # 0.1% commission
+    slippage_model = SlippageModel(slippage_type=SlippageType.VOLUME_ADJUSTED, base_slippage=0.001)
+    cost_calculator = TransactionCostCalculator(
+        commission_model=commission_model,
+        slippage_model=slippage_model
+    )
+    
+    # Calculate transaction costs
+    trade_amount = this_symbol_price * amount
+    cost_result = cost_calculator.calculate_single_trade_cost(
+        symbol=symbol,
+        price=this_symbol_price,
+        volume=amount,
+        market_data={
+            'volatility': 0.2,  # 假设波动率20%
+            'average_volume': 1000000,  # 假设平均成交量
+            'current_volume': 500000  # 假设当前成交量
+        }
+    )
+    
+    total_cost = trade_amount + cost_result.total_cost
+    
+    # Step 5: Validate buy conditions
+    # Calculate cash required for purchase: stock price × buy quantity + transaction costs
     try:
-        cash_left = current_position["CASH"] - this_symbol_price * amount
+        cash_left = current_position["CASH"] - total_cost
     except Exception as e:
         print(current_position, "CASH", this_symbol_price, amount)
 
     # Check if cash balance is sufficient for purchase
     if cash_left < 0:
         # Insufficient cash, return error message
-        return {"error": "Insufficient cash! This action will not be allowed.", "required_cash": this_symbol_price * amount, "cash_available": current_position.get("CASH", 0), "symbol": symbol, "date": today_date}
+        return {"error": "Insufficient cash! This action will not be allowed.", "required_cash": total_cost, "cash_available": current_position.get("CASH", 0), "symbol": symbol, "date": today_date}
     else:
-        # Step 5: Execute buy operation, update position
+        # Step 6: Execute buy operation, update position
         # Create a copy of current position to avoid directly modifying original data
         new_position = current_position.copy()
         
-        # Decrease cash balance
+        # Decrease cash balance (including transaction costs)
         new_position["CASH"] = cash_left
         
         # Increase stock position quantity
         new_position[symbol] += amount
         
-        # Step 6: Record transaction to position.jsonl file
+        # Step 7: Record transaction to position.jsonl file
         # Build file path: {project_root}/data/agent_data/{signature}/position/position.jsonl
         # Use append mode ("a") to write new transaction record
         # Each operation ID increments by 1, ensuring uniqueness of operation sequence
         position_file_path = os.path.join(project_root, "data", "agent_data", signature, "position", "position.jsonl")
         with open(position_file_path, "a") as f:
             # Write JSON format transaction record, containing date, operation ID, transaction details and updated position
-            print(f"Writing to position.jsonl: {json.dumps({'date': today_date, 'id': current_action_id + 1, 'this_action':{'action':'buy','symbol':symbol,'amount':amount},'positions': new_position})}")
-            f.write(json.dumps({"date": today_date, "id": current_action_id + 1, "this_action":{"action":"buy","symbol":symbol,"amount":amount},"positions": new_position}) + "\n")
-        # Step 7: Return updated position
+            transaction_record = {
+                "date": today_date,
+                "id": current_action_id + 1,
+                "this_action": {
+                    "action": "buy",
+                    "symbol": symbol,
+                    "amount": amount,
+                    "price": this_symbol_price,
+                    "transaction_costs": {
+                        "commission": cost_result.commission_cost,
+                        "slippage": cost_result.slippage_cost,
+                        "market_impact": cost_result.market_impact_cost,
+                        "total_cost": cost_result.total_cost,
+                        "effective_price": cost_result.effective_price
+                    }
+                },
+                "positions": new_position
+            }
+            print(f"Writing to position.jsonl: {json.dumps(transaction_record)}")
+            f.write(json.dumps(transaction_record) + "\n")
+        
+        # Step 8: Return updated position with cost information
         write_config_value("IF_TRADE", True)
         print("IF_TRADE", get_config_value("IF_TRADE"))
-        return new_position
+        return {
+            "new_position": new_position,
+            "transaction_costs": {
+                "commission": cost_result.commission_cost,
+                "slippage": cost_result.slippage_cost,
+                "market_impact": cost_result.market_impact_cost,
+                "total_cost": cost_result.total_cost,
+                "effective_price": cost_result.effective_price
+            },
+            "cost_breakdown": cost_result.breakdown
+        }
 
 @mcp.tool()
 def sell(symbol: str, amount: int) -> Dict[str, Any]:
@@ -112,8 +172,9 @@ def sell(symbol: str, amount: int) -> Dict[str, Any]:
     1. Get current position and operation ID
     2. Get stock opening price for the day
     3. Validate sell conditions (position exists, sufficient quantity)
-    4. Update position (decrease stock quantity, increase cash)
-    5. Record transaction to position.jsonl file
+    4. Calculate transaction costs
+    5. Update position (decrease stock quantity, increase cash)
+    6. Record transaction to position.jsonl file
     
     Args:
         symbol: Stock symbol, such as "AAPL", "MSFT", etc.
@@ -163,30 +224,83 @@ def sell(symbol: str, amount: int) -> Dict[str, Any]:
     if current_position[symbol] < amount:
         return {"error": "Insufficient shares! This action will not be allowed.", "have": current_position.get(symbol, 0), "want_to_sell": amount, "symbol": symbol, "date": today_date}
 
-    # Step 5: Execute sell operation, update position
+    # Step 5: Calculate transaction costs
+    # Initialize transaction cost calculator
+    commission_model = CommissionModel(commission_type=CommissionType.PROPORTIONAL, rate=0.001)  # 0.1% commission
+    slippage_model = SlippageModel(slippage_type=SlippageType.VOLUME_ADJUSTED, base_slippage=0.001)
+    cost_calculator = TransactionCostCalculator(
+        commission_model=commission_model,
+        slippage_model=slippage_model
+    )
+    
+    # Calculate transaction costs
+    trade_amount = this_symbol_price * amount
+    cost_result = cost_calculator.calculate_single_trade_cost(
+        symbol=symbol,
+        price=this_symbol_price,
+        volume=amount,
+        market_data={
+            'volatility': 0.2,  # 假设波动率20%
+            'average_volume': 1000000,  # 假设平均成交量
+            'current_volume': 500000  # 假设当前成交量
+        }
+    )
+    
+    net_proceeds = trade_amount - cost_result.total_cost
+    
+    # Step 6: Execute sell operation, update position
     # Create a copy of current position to avoid directly modifying original data
     new_position = current_position.copy()
     
     # Decrease stock position quantity
     new_position[symbol] -= amount
     
-    # Increase cash balance: sell price × sell quantity
+    # Increase cash balance: sell price × sell quantity - transaction costs
     # Use get method to ensure CASH field exists, default to 0 if not present
-    new_position["CASH"] = new_position.get("CASH", 0) + this_symbol_price * amount
+    new_position["CASH"] = new_position.get("CASH", 0) + net_proceeds
 
-    # Step 6: Record transaction to position.jsonl file
+    # Step 7: Record transaction to position.jsonl file
     # Build file path: {project_root}/data/agent_data/{signature}/position/position.jsonl
     # Use append mode ("a") to write new transaction record
     # Each operation ID increments by 1, ensuring uniqueness of operation sequence
     position_file_path = os.path.join(project_root, "data", "agent_data", signature, "position", "position.jsonl")
     with open(position_file_path, "a") as f:
         # Write JSON format transaction record, containing date, operation ID and updated position
-        print(f"Writing to position.jsonl: {json.dumps({'date': today_date, 'id': current_action_id + 1, 'this_action':{'action':'sell','symbol':symbol,'amount':amount},'positions': new_position})}")
-        f.write(json.dumps({"date": today_date, "id": current_action_id + 1, "this_action":{"action":"sell","symbol":symbol,"amount":amount},"positions": new_position}) + "\n")
+        transaction_record = {
+            "date": today_date,
+            "id": current_action_id + 1,
+            "this_action": {
+                "action": "sell",
+                "symbol": symbol,
+                "amount": amount,
+                "price": this_symbol_price,
+                "transaction_costs": {
+                    "commission": cost_result.commission_cost,
+                    "slippage": cost_result.slippage_cost,
+                    "market_impact": cost_result.market_impact_cost,
+                    "total_cost": cost_result.total_cost,
+                    "effective_price": cost_result.effective_price
+                }
+            },
+            "positions": new_position
+        }
+        print(f"Writing to position.jsonl: {json.dumps(transaction_record)}")
+        f.write(json.dumps(transaction_record) + "\n")
 
-    # Step 7: Return updated position
+    # Step 8: Return updated position with cost information
     write_config_value("IF_TRADE", True)
-    return new_position
+    return {
+        "new_position": new_position,
+        "transaction_costs": {
+            "commission": cost_result.commission_cost,
+            "slippage": cost_result.slippage_cost,
+            "market_impact": cost_result.market_impact_cost,
+            "total_cost": cost_result.total_cost,
+            "effective_price": cost_result.effective_price
+        },
+        "cost_breakdown": cost_result.breakdown,
+        "net_proceeds": net_proceeds
+    }
 
 if __name__ == "__main__":
     # new_result = buy("AAPL", 1)

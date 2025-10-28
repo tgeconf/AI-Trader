@@ -10,6 +10,8 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 from pathlib import Path
 
+import numpy as np  # 添加numpy导入
+
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
@@ -23,6 +25,11 @@ sys.path.insert(0, project_root)
 from tools.general_tools import extract_conversation, extract_tool_messages, get_config_value, write_config_value
 from tools.price_tools import add_no_trade_record
 from prompts.agent_prompt import get_agent_system_prompt, STOP_SIGNAL
+
+# Import professional risk management modules
+from risk_management.var_model import VaRModel
+from risk_management.position_sizing import PositionSizing
+from risk_management.stop_loss import StopLossManager
 
 # Load environment variables
 load_dotenv()
@@ -102,6 +109,16 @@ class BaseAgent:
         
         # Set OpenAI configuration
         self.openai_base_url = openai_base_url or os.getenv("OPENAI_API_BASE")
+        
+        # Initialize professional risk management modules
+        self.var_model = VaRModel()
+        self.position_sizer = PositionSizing(
+            total_capital=initial_cash,
+            max_risk_per_trade=0.02,  # 2% per trade
+            max_portfolio_risk=0.10,  # 10% total portfolio risk
+            max_leverage=2.0
+        )
+        self.stop_loss_manager = StopLossManager()
         
         # Initialize components
         self.client: Optional[MultiServerMCPClient] = None
@@ -427,6 +444,165 @@ class BaseAgent:
             "latest_date": latest_position.get("date"),
             "positions": latest_position.get("positions", {}),
             "total_records": len(positions)
+        }
+    
+    def calculate_portfolio_risk(self, portfolio_returns: List[float]) -> Dict[str, Any]:
+        """
+        计算投资组合风险指标
+        
+        Args:
+            portfolio_returns: 投资组合历史收益率列表
+            
+        Returns:
+            风险指标字典
+        """
+        if not portfolio_returns:
+            return {"error": "No portfolio returns data"}
+        
+        # 计算VaR
+        var_result = self.var_model.calculate_var(
+            returns=portfolio_returns,
+            confidence_level=0.95,
+            method="historical"
+        )
+        
+        # 计算CVaR
+        cvar_result = self.var_model.calculate_cvar(
+            returns=portfolio_returns,
+            confidence_level=0.95
+        )
+        
+        return {
+            "var_95": var_result,
+            "cvar_95": cvar_result,
+            "volatility": np.std(portfolio_returns),
+            "max_drawdown": self._calculate_max_drawdown(portfolio_returns)
+        }
+    
+    def _calculate_max_drawdown(self, returns: List[float]) -> float:
+        """计算最大回撤"""
+        cumulative_returns = np.cumprod([1 + r for r in returns])
+        running_max = np.maximum.accumulate(cumulative_returns)
+        drawdowns = (cumulative_returns - running_max) / running_max
+        return np.min(drawdowns)
+    
+    def calculate_position_size(self, symbol: str, price: float, 
+                              expected_return: float = 0.0,
+                              volatility: float = 0.2) -> Dict[str, Any]:
+        """
+        计算单只股票的头寸规模
+        
+        Args:
+            symbol: 股票代码
+            price: 当前价格
+            expected_return: 预期收益率
+            volatility: 波动率
+            
+        Returns:
+            头寸规模计算结果
+        """
+        try:
+            # 使用凯利公式计算头寸规模
+            kelly_result = self.position_sizer.calculate_kelly_position(
+                win_rate=0.6,  # 假设胜率
+                win_loss_ratio=2.0,  # 假设盈亏比
+                total_capital=self.initial_cash
+            )
+            
+            # 使用波动率调整法
+            volatility_result = self.position_sizer.calculate_volatility_adjusted_position(
+                symbol=symbol,
+                price=price,
+                volatility=volatility,
+                max_risk_per_trade=0.02
+            )
+            
+            return {
+                "symbol": symbol,
+                "kelly_position": kelly_result,
+                "volatility_adjusted_position": volatility_result,
+                "recommended_position": min(kelly_result, volatility_result),
+                "max_shares": int(self.initial_cash * 0.02 / price)  # 单笔交易最大2%风险
+            }
+        except Exception as e:
+            return {"error": f"Position sizing calculation failed: {str(e)}"}
+    
+    def check_stop_loss(self, symbol: str, current_price: float, 
+                       entry_price: float, position_size: int) -> Dict[str, Any]:
+        """
+        检查止损条件
+        
+        Args:
+            symbol: 股票代码
+            current_price: 当前价格
+            entry_price: 入场价格
+            position_size: 持仓数量
+            
+        Returns:
+            止损检查结果
+        """
+        try:
+            # 使用固定百分比止损
+            fixed_stop = self.stop_loss_manager.fixed_percentage_stop_loss(
+                entry_price=entry_price,
+                current_price=current_price,
+                stop_loss_percentage=0.05  # 5%止损
+            )
+            
+            # 使用ATR止损
+            atr_stop = self.stop_loss_manager.atr_stop_loss(
+                entry_price=entry_price,
+                current_price=current_price,
+                atr_value=current_price * 0.02,  # 假设ATR为价格的2%
+                atr_multiplier=2.0
+            )
+            
+            return {
+                "symbol": symbol,
+                "current_price": current_price,
+                "entry_price": entry_price,
+                "position_size": position_size,
+                "fixed_stop_loss": fixed_stop,
+                "atr_stop_loss": atr_stop,
+                "should_stop": fixed_stop["should_stop"] or atr_stop["should_stop"],
+                "stop_reason": "fixed_percentage" if fixed_stop["should_stop"] else "atr" if atr_stop["should_stop"] else "none"
+            }
+        except Exception as e:
+            return {"error": f"Stop loss check failed: {str(e)}"}
+    
+    def get_risk_report(self) -> Dict[str, Any]:
+        """
+        生成风险报告
+        
+        Returns:
+            风险报告字典
+        """
+        position_summary = self.get_position_summary()
+        
+        if "error" in position_summary:
+            return {"error": "Cannot generate risk report: " + position_summary["error"]}
+        
+        # 这里可以添加更复杂的风险计算
+        # 例如基于历史数据的VaR计算等
+        
+        return {
+            "signature": self.signature,
+            "latest_date": position_summary["latest_date"],
+            "total_capital": position_summary["positions"].get("CASH", 0) + sum(
+                position_summary["positions"].get(symbol, 0) * 100  # 假设每股市值100美元
+                for symbol in self.stock_symbols
+            ),
+            "cash_balance": position_summary["positions"].get("CASH", 0),
+            "stock_positions": {
+                symbol: position_summary["positions"].get(symbol, 0)
+                for symbol in self.stock_symbols
+                if position_summary["positions"].get(symbol, 0) > 0
+            },
+            "risk_metrics": {
+                "max_risk_per_trade": 0.02,
+                "max_portfolio_risk": 0.10,
+                "max_leverage": 2.0
+            }
         }
     
     def __str__(self) -> str:

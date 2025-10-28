@@ -20,6 +20,35 @@ AGENT_REGISTRY = {
 }
 
 
+# MCP service configuration for professional modules
+PROFESSIONAL_MCP_CONFIG = {
+    "math": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('MATH_HTTP_PORT', '8000')}/mcp",
+    },
+    "stock_local": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('GETPRICE_HTTP_PORT', '8003')}/mcp",
+    },
+    "search": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('SEARCH_HTTP_PORT', '8001')}/mcp",
+    },
+    "trade": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('TRADE_HTTP_PORT', '8002')}/mcp",
+    },
+    "portfolio_optimization": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('PORTFOLIO_OPTIMIZATION_HTTP_PORT', '8004')}/mcp",
+    },
+    "multi_timeframe": {
+        "transport": "streamable_http",
+        "url": f"http://localhost:{os.getenv('MULTI_TIMEFRAME_HTTP_PORT', '8005')}/mcp",
+    },
+}
+
+
 def get_agent_class(agent_type):
     """
     Dynamically import and return the corresponding class based on agent type name
@@ -141,6 +170,12 @@ async def main(config_path=None):
     base_delay = agent_config.get("base_delay", 0.5)
     initial_cash = agent_config.get("initial_cash", 10000.0)
     
+    # Get professional modules configuration
+    professional_config = config.get("professional_modules", {})
+    enable_risk_management = professional_config.get("risk_management", True)
+    enable_portfolio_optimization = professional_config.get("portfolio_optimization", True)
+    enable_multi_timeframe = professional_config.get("multi_timeframe", True)
+    
     # Display enabled model information
     model_names = [m.get("name", m.get("signature")) for m in enabled_models]
     
@@ -149,6 +184,7 @@ async def main(config_path=None):
     print(f"📅 Date range: {INIT_DATE} to {END_DATE}")
     print(f"🤖 Model list: {model_names}")
     print(f"⚙️  Agent config: max_steps={max_steps}, max_retries={max_retries}, base_delay={base_delay}, initial_cash={initial_cash}")
+    print(f"🔧 Professional modules: risk_management={enable_risk_management}, portfolio_optimization={enable_portfolio_optimization}, multi_timeframe={enable_multi_timeframe}")
                     
     for model_config in enabled_models:
         # Read basemodel and signature directly from configuration file
@@ -174,16 +210,34 @@ async def main(config_path=None):
         write_config_value("TODAY_DATE", END_DATE)
         write_config_value("IF_TRADE", False)
 
-
         # Get log path configuration
         log_path = log_config.get("log_path", "./data/agent_data")
 
         try:
-            # Dynamically create Agent instance
+            # Prepare MCP configuration based on enabled professional modules
+            mcp_config = {}
+            
+            # Always include basic tools
+            basic_tools = ["math", "stock_local", "search", "trade"]
+            for tool in basic_tools:
+                if tool in PROFESSIONAL_MCP_CONFIG:
+                    mcp_config[tool] = PROFESSIONAL_MCP_CONFIG[tool]
+            
+            # Add professional modules if enabled
+            if enable_portfolio_optimization and "portfolio_optimization" in PROFESSIONAL_MCP_CONFIG:
+                mcp_config["portfolio_optimization"] = PROFESSIONAL_MCP_CONFIG["portfolio_optimization"]
+                print("✅ Portfolio optimization module enabled")
+            
+            if enable_multi_timeframe and "multi_timeframe" in PROFESSIONAL_MCP_CONFIG:
+                mcp_config["multi_timeframe"] = PROFESSIONAL_MCP_CONFIG["multi_timeframe"]
+                print("✅ Multi-timeframe module enabled")
+            
+            # Dynamically create Agent instance with professional MCP configuration
             agent = AgentClass(
                 signature=signature,
                 basemodel=basemodel,
                 stock_symbols=all_nasdaq_100_symbols,
+                mcp_config=mcp_config,
                 log_path=log_path,
                 max_steps=max_steps,
                 max_retries=max_retries,
@@ -197,6 +251,14 @@ async def main(config_path=None):
             # Initialize MCP connection and AI model
             await agent.initialize()
             print("✅ Initialization successful")
+            
+            # Display risk management status
+            if enable_risk_management:
+                print("✅ Risk management module integrated")
+                risk_report = agent.get_risk_report()
+                if "error" not in risk_report:
+                    print(f"📊 Initial risk report: Total capital ${risk_report['total_capital']:.2f}")
+            
             # Run all trading days in date range
             await agent.run_date_range(INIT_DATE, END_DATE)
             
@@ -206,6 +268,12 @@ async def main(config_path=None):
             print(f"   - Latest date: {summary.get('latest_date')}")
             print(f"   - Total records: {summary.get('total_records')}")
             print(f"   - Cash balance: ${summary.get('positions', {}).get('CASH', 0):.2f}")
+            
+            # Display final risk report
+            if enable_risk_management:
+                final_risk_report = agent.get_risk_report()
+                if "error" not in final_risk_report:
+                    print(f"📊 Final risk report: Total capital ${final_risk_report['total_capital']:.2f}")
             
         except Exception as e:
             print(f"❌ Error processing model {model_name} ({signature}): {str(e)}")
